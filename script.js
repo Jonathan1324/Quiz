@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { getRemoteConfig, fetchAndActivate, getValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-remote-config.js";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -54,10 +54,27 @@ window.loadList = async function(){
     }
 }
 
+window.logout = function(){
+    signOut(auth)
+    .then(function() {
+
+    })
+    .catch((error) => {
+        let errorCode = error.code;
+        let errorMessage = error.message;
+
+        alert(errorMessage);
+    })
+}
+
 await onAuthStateChanged(auth, (user) => {
     if (user) { 
         console.log(user);
-        document.getElementById("Account").innerHTML = `<a href="./Account/user/?id=${user.uid}">${user["displayName"]}</a>`;
+        document.getElementById("Account").innerHTML = `
+            <a href="./Account/user/?id=${user.uid}">${user["displayName"]}</a>
+            <br>
+            <button style="height: 3.75vh; width: 7vh; font-size: 1.5vh; margin-top: 1vh;" onclick="logout()">Logout</button>
+        `;
         document.getElementById("create").innerHTML = `<a href="./create/index.html"><button id="createBtn">Create Quiz</button></a>`;
     } else {
         document.getElementById("create").innerHTML = `<a id="createBtn">Sign-in or Sign-up to create a Quiz</a>`;

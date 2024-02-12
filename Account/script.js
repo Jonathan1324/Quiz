@@ -83,25 +83,25 @@ window.login = function() {
     }
 
     signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-        let user = userCredential.user;
+        .then((userCredential) => {
+            let user = userCredential.user;
 
-        let Ref = ref(database, `users/${user.uid}`);
+            let Ref = ref(database, `users/${user.uid}`);
 
-        let userData = {
-            last_login: Date.now()
-        };
+            let userData = {
+                last_login: Date.now()
+            };
 
-        update(Ref, userData);
+            update(Ref, userData);
 
-        window.location.href = `${window.location.href}user/?id=${user.uid}`;
-    })
-    .catch((error) => {
-        let errorCode = error.code;
-        let errorMessage = error.message;
+            window.location.href = `${window.location.href}user/?id=${user.uid}`;
+        })
+        .catch((error) => {
+            let errorCode = error.code;
+            let errorMessage = error.message;
 
-        alert(errorMessage);
-    })
+            alert(errorMessage);
+        })
 }
 
 function validateEmail(email) {
