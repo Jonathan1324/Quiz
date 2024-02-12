@@ -57,6 +57,7 @@ window.register = function() {
             updateProfile(user, {
                 displayName: userName, photoURL: `${window.location.href.substring(0, window.location.href.lastIndexOf('/account'))}/src/defaultProfilePicture.jpg`
             }).then(() => {
+                window.location.href = `${window.location.href}user/?id=${user.uid}`;
             }).catch((error) => {
                 let errorCode = error.code;
                 let errorMessage = error.message;
@@ -93,7 +94,7 @@ window.login = function() {
 
             update(Ref, userData);
 
-            //window.location.href = `${window.location.href}user/?id=${user.uid}`;
+            window.location.href = `${window.location.href}user/?id=${user.uid}`;
         })
         .catch((error) => {
             let errorCode = error.code;
@@ -119,9 +120,7 @@ function validateField(field){
 }
 
 await onAuthStateChanged(auth, (user) => {
-    if (user) { 
-        window.location.href = `${window.location.href}user/?id=${user.uid}`;
-    } else {
+    if (!user) {
         document.getElementById("buttonContainer").innerHTML = `
         <button onclick="login()">Login</button>
         <button onclick="register()">Register</button>
