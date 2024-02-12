@@ -38,7 +38,13 @@
 
     <ul id="questions"></ul>
 
-    <button onclick="createQuiz()">Create Quiz</button>
+    <div id="createQuiz"><button onclick="createQuiz()">Create Quiz</button></div>
+
+    <script>
+        if(localStorage.getItem("CreateInnerHTML") == `<a id="createBtn">Sign-in or Sign-up to create a Quiz</a>`){
+            document.getElementById("createQuiz").innerHTML = "";
+        }
+    </script>
 
     <script type="module" src="create.js"></script>
 </body>
