@@ -15,6 +15,9 @@ const firebaseConfig = {
     measurementId: "G-Q11CP6XDR1"
 };
 
+let User = "";
+let UName = "";
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -40,7 +43,12 @@ window.createQuiz = async function() {
     quizID = await getDoc(doc(db, "Metadata", "Quizes"));
     quizID = quizID.data()["newestQuizID"] + 1;
 
-    quiz = {"title": document.getElementById("titleInput").value, "questions": questions, "questionCount": Object.keys(questions).length};
+    quiz = {
+        "title": document.getElementById("titleInput").value,
+        "creator": User,
+        "creatorName": UName,
+        "questions": questions,
+        "questionCount": Object.keys(questions).length};
 
     await setDoc(doc(db, "Metadata", "Quizes"), {"newestQuizID": quizID});
     await setDoc(doc(db, "Quizes", String(quizID)), quiz);
@@ -97,5 +105,9 @@ window.clearQuestions = function() {
 await onAuthStateChanged(auth, (user) => {
     if (!user) { 
         document.getElementById("createQuiz").innerHTML = "";
+    } else {
+        User = user.uid;
+        UName = user.displayName;
+        document.getElementById("createQuiz").innerHTML = `<button onclick="createQuiz()">Create Quiz</button>`;
     }
 });

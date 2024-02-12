@@ -68,6 +68,7 @@ function finished(){
     current++;
     document.getElementById("question").innerHTML = `
         <h1 id="Question">${document.getElementById("Question").innerHTML = quiz["title"]}</h1>
+        <h2>by ${quiz["creatorName"]}</h2>
         <br>
         <h1 id="score">${score}</h1>
     `;
