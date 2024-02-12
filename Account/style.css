@@ -15,11 +15,10 @@ input {
     border: 0;
 
     height: 5vh;
-    width: 20vh;
+    width: 35vh;
     text-align: center;
-    font-size: 2vh;
+    font-size: 2.5vh;
 
-    margin-bottom: 2vh;
     margin-left: 0.5vh;
     margin-right: 0.5vh;
     border-radius: 1.5vh;
@@ -27,4 +26,8 @@ input {
 
 #formContentContainer {
     text-align: center;
+}
+
+button {
+    margin-top: 4vh;
 }

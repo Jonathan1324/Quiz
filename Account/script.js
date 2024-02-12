@@ -137,7 +137,7 @@ await onAuthStateChanged(auth, (user) => {
     if (!user) {
         document.getElementById("buttonContainer").innerHTML = `
         <button onclick="login()">Login</button>
-        <button onclick="register()">Register</button>
+        <button onclick="register()">Sign-Up</button>
         `;
     }
 });
