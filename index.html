@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Quiz</title>
+</head>
+<body onload="loadList()">
+    <div id="Account">...</div>
+    <h1>Quiz</h1>
+    <input placeholder="123 456 789" id="ID" type="number">
+    <a href="./quiz/index.html"><button onclick="startQuizSingleplayer()" id="submitBtn">SinglePlayer</button></a>
+
+    <br>
+
+    <a href="./create/index.html"><button id="createBtn">Create Quiz</button></a>
+
+    <div id="explore">
+        <h1>Explore</h1>
+        <ul id="exploreIDs"></ul>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

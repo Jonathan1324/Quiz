@@ -1,0 +1,101 @@
+body {
+    background-color: rgb(48, 48, 48);
+    color: white;
+}
+
+#quizTitle {
+    margin: auto;
+    width: 40vh;
+    padding: 1vh;
+
+    text-align: center;
+    font-size: 2vh;
+}
+
+.Input {
+    background-color: rgb(63, 63, 63);
+    color: white;
+
+    border: 0;
+
+    height: 2vh;
+    text-align: center;
+    font-size: 2vh;
+}
+
+.table {
+    background-color: rgb(54, 54, 54);
+
+    font-size: 2.5vh;
+}
+
+select {
+    background-color: rgb(75, 75, 75);
+    border: 0;
+    border-radius: 0.75vh;
+
+    color: white;
+    
+    height: 3vh;
+    width: 15vh;
+    font-size: 2vh;
+}
+
+#questions {
+    font-size: 3vh;
+}
+
+#destroyButton {
+    background-color: red;
+    height: 5vh;
+    width: 5vh;
+    margin-left: 5vh;
+}
+
+.answerInput {
+    background-color: rgb(63, 63, 63);
+    color: white;
+
+    border: 0;
+
+    height: 2vh;
+    text-align: center;
+    font-size: 2vh;
+}
+
+table {
+    margin: 0px auto;
+
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+th {
+    height: 5vh;
+    width: 10vh;
+
+    font-size: 3vh;
+}
+
+button {
+    background-color: rgb(92, 92, 92);
+    color: white;
+
+    border: 0;
+    border-radius: 0.75vh;
+
+    text-align: center;
+    font-size: 2.5vh;
+    padding: 1vh;
+    text-decoration: none;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(98, 98, 98);
+}
+
+button:active {
+    background-color: rgb(104, 104, 104);
+}

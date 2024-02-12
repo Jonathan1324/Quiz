@@ -1,0 +1,119 @@
+body {
+    background-color: rgb(48, 48, 48);
+    color: white;
+    font-size: 2vh;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-size: 4vh;
+    text-align: center;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+#Account {
+    background-color: rgb(53, 53, 53);
+    width: 15vh;
+    text-align: center;
+}
+
+input {
+    display: block;
+    margin : 0 auto;
+
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+
+    background-color: rgb(92, 92, 92);
+    color: white;
+
+    border: 0;
+    height: 4vh;
+    width: 25vh;
+    border-radius: 0.75vh;
+
+    text-align: center;
+    font-size: 4vh;
+    padding: 1vh;
+}
+
+#explore {
+    margin-top: 20vh;
+    text-align: center;
+    background-color: rgb(72, 72, 72);
+}
+
+button {
+    background-color: rgb(92, 92, 92);
+    color: white;
+
+    border: 0;
+    border-radius: 0.75vh;
+
+    text-align: center;
+    font-size: 2.5vh;
+    padding: 1vh;
+    text-decoration: none;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(98, 98, 98);
+}
+
+button:active {
+    background-color: rgb(104, 104, 104);
+}
+
+#createBtn {
+    margin-top: 13vh;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    height: 5vh;
+    width: 17vh;
+}
+
+#submitBtn {
+    margin-top: 4vh;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    height: 5vh;
+    width: 17vh;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 2vh;
+    padding: 0;
+    text-align: center;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}

@@ -1,0 +1,55 @@
+body {
+    background-color: rgb(48, 48, 48);
+    color: white;
+}
+
+#question {
+    margin: 5vh;
+    text-align: center;
+    background-color: rgb(66, 66, 66);
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+#options {
+    margin: 0px auto;
+    background-color: rgb(58, 58, 58);
+}
+
+.optionColumn {
+    height: 10vh;
+    width: 10vh;
+    background-color: rgb(50, 50, 50);
+}
+
+.optionColumn:hover {
+    cursor: pointer;
+    background-color: rgb(52, 52, 52);
+}
+
+.optionColumn:active {
+    cursor: pointer;
+    background-color: rgb(57, 57, 57);
+}
+
+#nextBtn {
+    background-color: rgb(58, 58, 58);
+    width: 10vh;
+    height: 3vh;
+    margin: 5vh;
+    text-align: center;
+    font-size: 2vh;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#nextBtn:hover {
+    cursor: pointer;
+    background-color: rgb(61, 61, 61);
+}
+
+#nextBtn:active {
+    background-color: rgb(66, 66, 66);
+}
