@@ -60,7 +60,7 @@ await onAuthStateChanged(auth, (user) => {
         document.getElementById("Account").innerHTML = `<a href="./Account/user/?id=${user.uid}">${user["displayName"]}</a>`;
         document.getElementById("create").innerHTML = `<a href="./create/index.html"><button id="createBtn">Create Quiz</button></a>`;
     } else {
-        document.getElementById("create").innerHTML = `<a id="createBtn" style:"background-color:green;">Sign-in or Sign-up to create a Quiz</a>`;
+        document.getElementById("create").innerHTML = `<a id="createBtn">Sign-in or Sign-up to create a Quiz</a>`;
         document.getElementById("Account").innerHTML = `<a style="color:rgb(65, 182, 197)" href="./Account/index.html">Sign-in/Sign-up</a>`;
     }
 });
