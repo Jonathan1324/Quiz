@@ -30,5 +30,23 @@ input {
 }
 
 button {
+    background-color: rgb(92, 92, 92);
+    color: white;
     margin-top: 4vh;
+
+    border: none;
+    border-radius: 1.5vh;
+
+    width: 20vh;
+    height: 6vh;
+    font-size: 3.5vh;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(98, 98, 98);
+}
+
+button:active {
+    background-color: rgb(104, 104, 104);
 }
