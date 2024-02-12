@@ -52,6 +52,14 @@ window.register = function() {
             };
 
             console.log(userData);
+
+            localStorage.setItem("AccountInnerHTML", `
+                <a href="./Account/user/?id=${user.uid}">${user["displayName"]}</a>
+                <br>
+                <button style="height: 3.75vh; width: 7vh; font-size: 1.5vh; margin-top: 1vh;" onclick="logout()">Logout</button>
+            `);
+            localStorage.setItem("CreateInnerHTML", `<a href="./create/index.html"><button id="createBtn">Create Quiz</button></a>`);
+
             set(Ref, userData)
                 .then(function() {
                     updateProfile(user, {
@@ -98,6 +106,13 @@ window.login = function() {
             let userData = {
                 last_login: Date.now()
             };
+
+            localStorage.setItem("AccountInnerHTML", `
+                <a href="./Account/user/?id=${user.uid}">${user["displayName"]}</a>
+                <br>
+                <button style="height: 3.75vh; width: 7vh; font-size: 1.5vh; margin-top: 1vh;" onclick="logout()">Logout</button>
+            `);
+            localStorage.setItem("CreateInnerHTML", `<a href="./create/index.html"><button id="createBtn">Create Quiz</button></a>`);
 
             update(Ref, userData)
                 .then(function() {

@@ -14,9 +14,10 @@ h1 {
 }
 
 #Account {
-    background-color: rgb(53, 53, 53);
-    width: 15vh;
+    background-color: rgb(54, 54, 54);
+    width: 20vh;
     text-align: center;
+    border-radius: 1.5vh;
 }
 
 input {
@@ -116,4 +117,14 @@ li:hover {
 a {
     color: white;
     text-decoration: none;
+}
+
+img {
+    height: 2vh;
+    margin-right: 3vh;
+    border-radius: 1.2vh;
+}
+
+table {
+    align-items: center;
 }

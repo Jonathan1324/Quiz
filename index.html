@@ -12,7 +12,11 @@
     <title>Quiz</title>
 </head>
 <body onload="loadList()">
-    <div id="Account">...</div>
+    <div id="Account">
+        <a href="./Account/user/"></a>
+        <br>
+        <button style="height: 3.75vh; width: 7vh; font-size: 1.5vh; margin-top: 1vh;" onclick="logout()">Logout</button>
+    </div>
     <h1>Quiz</h1>
     <input placeholder="123 456 789" id="ID" type="number">
     <a href="./quiz/index.html"><button onclick="startQuizSingleplayer()" id="submitBtn">SinglePlayer</button></a>
@@ -26,6 +30,10 @@
         <ul id="exploreIDs"></ul>
     </div>
 
+    <script>
+        document.getElementById("Account").innerHTML = localStorage.getItem("AccountInnerHTML");
+        document.getElementById("create").innerHTML = localStorage.getItem("CreateInnerHTML");
+    </script>
     <script type="module" src="script.js"></script>
 </body>
 </html>
