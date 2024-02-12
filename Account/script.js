@@ -93,6 +93,8 @@ window.login = function() {
         };
 
         update(Ref, userData);
+
+        window.location.href = `${window.location.href}user/id=${user.uid}`;
     })
     .catch((error) => {
         let errorCode = error.code;
