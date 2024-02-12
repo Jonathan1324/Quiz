@@ -29,10 +29,13 @@ input {
     text-align: center;
 }
 
+#buttonContainer {
+    margin-top: 2vh;
+}
+
 button {
     background-color: rgb(92, 92, 92);
     color: white;
-    margin-top: 4vh;
 
     border: none;
     border-radius: 1.5vh;
@@ -40,6 +43,8 @@ button {
     width: 20vh;
     height: 6vh;
     font-size: 3.5vh;
+
+    margin: 1vh;
 }
 
 button:hover {
