@@ -68,7 +68,7 @@ function finished(){
     current++;
     document.getElementById("question").innerHTML = `
         <h1 id="Question">${document.getElementById("Question").innerHTML = quiz["title"]}</h1>
-        <h2>by ${quiz["creatorName"]}</h2>
+        <h2>by <a href="${window.location.href.substring(0, window.location.href.lastIndexOf('/quiz'))}/Account/user/?id=${quiz["creator"]}" style="text-decoration: none; color:white;">${quiz["creatorName"]}</a></h2>
         <br>
         <h1 id="score">${score}</h1>
     `;
