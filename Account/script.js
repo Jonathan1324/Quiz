@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, onAuthStateChanged  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getDatabase, get, set, ref, update, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -118,3 +118,14 @@ function validateField(field){
     if(field == null || field.length <= 0){ return false; }
     else { return true; }
 }
+
+await onAuthStateChanged(auth, (user) => {
+    if (user) { 
+        window.location.href = `${window.location.href}user/?id=${user.uid}`;
+    } else {
+        document.getElementById("buttonContainer").innerHTML = `
+        <button onclick="login()">Login</button>
+        <button onclick="register()">Register</button>
+        `;
+    }
+});
