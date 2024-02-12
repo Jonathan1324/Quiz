@@ -2,3 +2,27 @@ body {
     background-color: rgb(48, 48, 48);
     color: white;
 }
+
+h2 {
+    font-size: 4vh;
+    text-align: center;
+}
+
+input {
+    background-color: rgb(63, 63, 63);
+    color: white;
+
+    border: 0;
+
+    height: 5vh;
+    width: 20vh;
+    text-align: center;
+    font-size: 2vh;
+
+    margin-bottom: 2vh;
+    border-radius: 1.5vh;
+}
+
+#formContentContainer {
+    text-align: center;
+}
