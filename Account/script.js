@@ -52,18 +52,16 @@ window.register = function() {
             };
 
             console.log(userData);
-            set(Ref, userData);
-
-            updateProfile(user, {
-                displayName: userName, photoURL: `${window.location.href.substring(0, window.location.href.lastIndexOf('/account'))}/src/defaultProfilePicture.jpg`
-            }).then(() => {
-                //window.location.href = `${window.location.href}user/?id=${user.uid}`;
-            }).catch((error) => {
-                let errorCode = error.code;
-                let errorMessage = error.message;
-    
-                alert(errorMessage);
-            });
+            set(Ref, userData)
+                .then(function() {
+                    window.location.href = `${window.location.href}user/?id=${user.uid}`;
+                })
+                .catch((error) => {
+                    let errorCode = error.code;
+                    let errorMessage = error.message;
+        
+                    alert(errorMessage);
+                })
         })
         .catch((error) => {
             let errorCode = error.code;
@@ -92,9 +90,16 @@ window.login = function() {
                 last_login: Date.now()
             };
 
-            update(Ref, userData);
-
-            //window.location.href = `${window.location.href}user/?id=${user.uid}`;
+            update(Ref, userData)
+                .then(function() {
+                    window.location.href = `${window.location.href}user/?id=${user.uid}`;
+                })
+                .catch((error) => {
+                    let errorCode = error.code;
+                    let errorMessage = error.message;
+        
+                    alert(errorMessage);
+                })
         })
         .catch((error) => {
             let errorCode = error.code;
