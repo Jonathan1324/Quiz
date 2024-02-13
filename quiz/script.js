@@ -56,12 +56,12 @@ function load(question){
         <br>
         <table id="options">
             <tr class="optionRow">
-                <th class="optionColumn" id="option${Option1}" onclick="choose(${Option1})">${quiz["questions"][question][1]}</th>
-                <th class="optionColumn" id="option${Option2}" onclick="choose(${Option2})">${quiz["questions"][question][2]}</th>
+                <th class="optionColumn" id="option${Option1}" onclick="choose(${Option1})">${quiz["questions"][question][Option1]}</th>
+                <th class="optionColumn" id="option${Option2}" onclick="choose(${Option2})">${quiz["questions"][question][Option2]}</th>
             </tr>
             <tr class="optionRow">
-                <th class="optionColumn" id="option${Option3}" onclick="choose(${Option3})">${quiz["questions"][question][3]}</th>
-                <th class="optionColumn" id="option${Option4}" onclick="choose(${Option4})">${quiz["questions"][question][4]}</th>
+                <th class="optionColumn" id="option${Option3}" onclick="choose(${Option3})">${quiz["questions"][question][Option3]}</th>
+                <th class="optionColumn" id="option${Option4}" onclick="choose(${Option4})">${quiz["questions"][question][Option4]}</th>
             </tr>
         </table>
     `;
