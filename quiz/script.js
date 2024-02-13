@@ -46,17 +46,22 @@ function load(question){
         }
     }
     
+    let Option1 = 1;
+    let Option2 = 2;
+    let Option3 = 3;
+    let Option4 = 4;
+    
     document.getElementById("question").innerHTML = `
         <h1 id="Question">${document.getElementById("Question").innerHTML = quiz["questions"][question]["title"]}</h1>
         <br>
         <table id="options">
             <tr class="optionRow">
-                <th class="optionColumn" id="option1" onclick="choose(1)">${quiz["questions"][question][1]}</th>
-                <th class="optionColumn" id="option2" onclick="choose(2)">${quiz["questions"][question][2]}</th>
+                <th class="optionColumn" id="option${Option1}" onclick="choose(${Option1})">${quiz["questions"][question][1]}</th>
+                <th class="optionColumn" id="option${Option2}" onclick="choose(${Option2})">${quiz["questions"][question][2]}</th>
             </tr>
             <tr class="optionRow">
-                <th class="optionColumn" id="option3" onclick="choose(3)">${quiz["questions"][question][3]}</th>
-                <th class="optionColumn" id="option4" onclick="choose(4)">${quiz["questions"][question][4]}</th>
+                <th class="optionColumn" id="option${Option3}" onclick="choose(${Option3})">${quiz["questions"][question][3]}</th>
+                <th class="optionColumn" id="option${Option4}" onclick="choose(${Option4})">${quiz["questions"][question][4]}</th>
             </tr>
         </table>
     `;
