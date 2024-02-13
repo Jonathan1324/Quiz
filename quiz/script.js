@@ -46,22 +46,21 @@ function load(question){
         }
     }
     
-    let Option1 = 1;
-    let Option2 = 2;
-    let Option3 = 3;
-    let Option4 = 4;
+    let options = [1, 2, 3, 4];
+
+    options.sort(() => Math.random() - 0.5);
     
     document.getElementById("question").innerHTML = `
         <h1 id="Question">${document.getElementById("Question").innerHTML = quiz["questions"][question]["title"]}</h1>
         <br>
         <table id="options">
             <tr class="optionRow">
-                <th class="optionColumn" id="option${Option1}" onclick="choose(${Option1})">${quiz["questions"][question][Option1]}</th>
-                <th class="optionColumn" id="option${Option2}" onclick="choose(${Option2})">${quiz["questions"][question][Option2]}</th>
+                <th class="optionColumn" id="option${options[0]}" onclick="choose(${options[0]})">${quiz["questions"][question][options[0]]}</th>
+                <th class="optionColumn" id="option${options[1]}" onclick="choose(${options[1]})">${quiz["questions"][question][options[1]]}</th>
             </tr>
             <tr class="optionRow">
-                <th class="optionColumn" id="option${Option3}" onclick="choose(${Option3})">${quiz["questions"][question][Option3]}</th>
-                <th class="optionColumn" id="option${Option4}" onclick="choose(${Option4})">${quiz["questions"][question][Option4]}</th>
+                <th class="optionColumn" id="option${options[2]}" onclick="choose(${options[2]})">${quiz["questions"][question][options[2]]}</th>
+                <th class="optionColumn" id="option${options[3]}" onclick="choose(${options[3]})">${quiz["questions"][question][options[3]]}</th>
             </tr>
         </table>
     `;
