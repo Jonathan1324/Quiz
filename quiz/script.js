@@ -20,11 +20,16 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
-let quizID = sessionStorage.getItem("id");
+const queryString = window.location.search;
+
+const urlParams = new URLSearchParams(queryString);
+
+const quizID = urlParams.get('qId');
+
 let rightOption = 0;
 
 let quiz = (await getDoc(doc(db, "Quizes", quizID)));
-quiz = quiz.data(quizID = quizID);
+quiz = quiz.data();
 
 let choosen = false;
 

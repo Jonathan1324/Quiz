@@ -23,14 +23,13 @@ const db = getFirestore(app);
 const remoteConfig = getRemoteConfig(app);
 
 window.startQuizSingleplayerWithID = function(Id){
-    console.log(Id)
     sessionStorage.setItem("id", Id);
 }
 
 window.startQuizSingleplayer = function(){
     let Value = parseInt(document.getElementById("ID").value);
     if(String(Value) == "NaN"){ Value = 0; }
-    sessionStorage.setItem("id", Value);
+    window.location.href = `${window.location.href}quiz/?qId=${Value}`;
 }
 
 async function createListElement(id){
