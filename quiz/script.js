@@ -28,8 +28,15 @@ const quizID = urlParams.get('qId');
 
 let rightOption = 0;
 
-let quiz = (await getDoc(doc(db, "Quizes", quizID)));
-quiz = quiz.data();
+let quiz = getDoc(doc(db, "Quizes", quizID))
+    .then((Quiz) => {
+        quiz = Quiz.data();
+        console.log(quiz)
+        document.getElementById("start").innerHTML = `
+            <h4>${quiz["title"]}</h4>
+            <button id="startBtn" onclick="start()">Start</button>
+        `;
+    });
 
 let choosen = false;
 
@@ -120,10 +127,3 @@ window.next = function () {
         window.location.href = window.location.href.substring(0, window.location.href.lastIndexOf('/quiz'));
     }
 }
-
-/*
-document.getElementById("start").innerHTML = `
-    <h4>${quiz["title"]}</h4>
-    <button id="startBtn" onclick="start()">Start</button>
-`;
-*/
