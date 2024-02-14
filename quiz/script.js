@@ -38,14 +38,14 @@ let score = 0;
 
 function load(question){
     try{
-        document.getElementById("nextBtn").innerHTML = "next";
+        document.getElementById("NextBtn").innerHTML = `<div id="nextBtn" onclick="next()">next</div>`;
         rightOption = quiz["questions"][question]["right"];
     } catch(e){
         if(current >= 0){
             document.getElementById("question").innerHTML = `
                 <h1 id="Question">Quiz not found</h1>
             `;
-            document.getElementById("nextBtn").innerHTML = "back";
+            document.getElementById("NextBtn").innerHTML = `<div id="nextBtn" onclick="next()">back</div>`;
             current = -1;
             return;
         }
@@ -83,7 +83,10 @@ function finished(){
     `;
 }
 
-load(current);
+window.start = function (){
+    document.getElementById("start").remove();
+    load(current);
+}
 
 window.choose = function (selection) {
     if(choosen){ return; }
@@ -117,3 +120,8 @@ window.next = function () {
         window.location.href = window.location.href.substring(0, window.location.href.lastIndexOf('/quiz'));
     }
 }
+
+document.getElementById("start").innerHTML = `
+    <h4>${quiz["title"]}</h4>
+    <button id="startBtn" onclick="start()">Start</button>
+`;

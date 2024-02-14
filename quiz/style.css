@@ -53,3 +53,38 @@ body {
 #nextBtn:active {
     background-color: rgb(66, 66, 66);
 }
+
+#start {
+    align-items: center;
+    text-align: center;
+}
+
+#startBtn {
+    background-color: rgb(92, 92, 92);
+    color: white;
+
+    border: 0;
+    border-radius: 1.5vh;
+
+    text-align: center;
+    font-size: 3.5vh;
+    padding: 1vh;
+    text-decoration: none;
+
+    height: 6vh;
+    width: 20vh;
+}
+
+#startBtn:hover {
+    cursor: pointer;
+    background-color: rgb(98, 98, 98);
+}
+
+#startBtn:active {
+    background-color: rgb(104, 104, 104);
+}
+
+h4 {
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+}
