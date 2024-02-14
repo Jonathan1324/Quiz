@@ -121,7 +121,9 @@ window.next = function () {
     }
 }
 
+/*
 document.getElementById("start").innerHTML = `
     <h4>${quiz["title"]}</h4>
     <button id="startBtn" onclick="start()">Start</button>
 `;
+*/
