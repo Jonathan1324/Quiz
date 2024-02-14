@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getFirestore, doc, setDoc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -50,7 +50,7 @@ window.createQuiz = async function() {
         "questions": questions,
         "questionCount": Object.keys(questions).length};
 
-    await setDoc(doc(db, "Metadata", "Quizes"), {"newestQuizID": quizID});
+    await updateDoc(doc(db, "Metadata", "Quizes"), {"newestQuizID": quizID});
     await setDoc(doc(db, "Quizes", String(quizID)), quiz);
 
     document.getElementById("quizTitle").innerHTML = "";

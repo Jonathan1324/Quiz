@@ -23,7 +23,7 @@ const db = getFirestore(app);
 const remoteConfig = getRemoteConfig(app);
 
 window.startQuizSingleplayerWithID = function(Id){
-    sessionStorage.setItem("id", Id);
+    window.location.href = `${window.location.href}quiz/?qId=${Id}`;
 }
 
 window.startQuizSingleplayer = function(){
@@ -34,8 +34,10 @@ window.startQuizSingleplayer = function(){
 
 async function createListElement(id){
     let title = await getDoc(doc(db, "Quizes", String(id)));
-    title = title.data()["title"];
-    document.getElementById("exploreIDs").innerHTML += `<li onclick="startQuizSingleplayerWithID(${id})"><a href="./quiz/index.html">${title}</a></li>`;
+    try {
+        title = title.data()["title"];
+    } catch(e) { return; }
+    document.getElementById("exploreIDs").innerHTML += `<li onclick="startQuizSingleplayerWithID(${id})"><a>${title}</a></li>`;
 }
 
 window.loadList = async function(){
@@ -48,8 +50,7 @@ window.loadList = async function(){
 
     for(let i = newestID; i >= newestID - length; i--){
         try {
-            createListElement(i);
-            //await createListElement(i);
+                createListElement(i);
         } catch(e){ }
     }
 }
