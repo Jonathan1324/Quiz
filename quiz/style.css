@@ -1,8 +1,6 @@
 body {
     background-color: rgb(48, 48, 48);
     color: white;
-
-    font-size: 5vh;
 }
 
 #question {
@@ -89,4 +87,10 @@ body {
 h4 {
     margin-top: 1vh;
     margin-bottom: 2vh;
+
+    font-size: 5vh;
+}
+
+#loading {
+    font-size: 3vh;
 }
