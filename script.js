@@ -37,7 +37,9 @@ async function createListElement(id){
     try {
         title = title.data()["title"];
     } catch(e) { return; }
-    document.getElementById("exploreIDs").innerHTML += `<li onclick="startQuizSingleplayerWithID(${id})"><a>${title}</a></li>`;
+    document.getElementById("exploreIDs").innerHTML += `
+        <li onclick="startQuizSingleplayerWithID(${id})"><a>${title}</a></li>
+    `;
 }
 
 window.loadList = async function(){

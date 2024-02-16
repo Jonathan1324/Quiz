@@ -32,10 +32,27 @@ let quiz = getDoc(doc(db, "Quizes", quizID))
     .then((Quiz) => {
         quiz = Quiz.data();
         console.log(quiz)
-        document.getElementById("start").innerHTML = `
-            <h4>${quiz["title"]}</h4>
-            <button id="startBtn" onclick="start()">Start</button>
-        `;
+        try {
+            document.getElementById("start").innerHTML = `
+                <h4>${quiz["title"]}</h4>
+                <a style="font-size: 4vh;">
+                by <a href="${window.location.href.substring(0, window.location.href.lastIndexOf('/quiz'))}/Account/user/?id=${quiz["creator"]}" style="font-size: 4vh; text-decoration:none; color: white;">${quiz["creatorName"]}</a>
+                <br>
+                <a style="font-size: 3.5vh;">${quiz["questionCount"]} Questions</a>
+                </a>
+                <br>
+                <br>
+                <button id="startBtn" onclick="start()">Start</button>
+            `;
+        } catch(e){
+            document.getElementById("start").innerHTML = ``;
+            document.getElementById("question").innerHTML = `
+                <h1 id="Question">Quiz not found</h1>
+            `;
+            document.getElementById("NextBtn").innerHTML = `<div id="nextBtn" onclick="next()">back</div>`;
+            current = -1;
+            return;
+        }
     });
 
 let choosen = false;
