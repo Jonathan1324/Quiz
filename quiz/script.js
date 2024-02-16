@@ -38,7 +38,7 @@ let quiz = getDoc(doc(db, "Quizes", quizID))
                 <a style="font-size: 4vh;">
                 by <a href="${window.location.href.substring(0, window.location.href.lastIndexOf('/quiz'))}/Account/user/?id=${quiz["creator"]}" style="font-size: 4vh; text-decoration:none; color: white;">${quiz["creatorName"]}</a>
                 <br>
-                <a style="font-size: 3.5vh;">${quiz["questionCount"]} Questions</a>
+                <a style="font-size: 3.5vh;">${quiz["questionCount"]} questions</a>
                 </a>
                 <br>
                 <br>
