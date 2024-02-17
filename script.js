@@ -72,6 +72,7 @@ window.logout = function(){
 
 await onAuthStateChanged(auth, (user) => {
     if (user) { 
+        localStorage.setItem("UID", user.uid);
         let account = `
             <a href="./Account/user/?id=${user.uid}">${user["displayName"]}</a>
             <br>

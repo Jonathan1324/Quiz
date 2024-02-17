@@ -23,7 +23,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-let quizID = "123";
+let quizID = "0";
 let quiz = {};
 let questions = {};
 
@@ -40,6 +40,7 @@ function loadQuestions(){
 }
 
 window.createQuiz = async function() {
+    document.getElementById("createQuiz").innerHTML = "Loading";
     quizID = await getDoc(doc(db, "Metadata", "Quizes"));
     quizID = quizID.data()["newestQuizID"] + 1;
 
@@ -55,6 +56,7 @@ window.createQuiz = async function() {
 
     document.getElementById("quizTitle").innerHTML = "";
     document.getElementById("Table").innerHTML = "ID: " + quizID;
+    document.getElementById("createQuiz").innerHTML = "";
 }
 
 window.deleteQuestion = function(Delete) {

@@ -59,6 +59,7 @@ window.register = function() {
                 <button style="height: 3.75vh; width: 7vh; font-size: 1.5vh; margin-top: 1vh;" onclick="logout()">Logout</button>
             `);
             localStorage.setItem("CreateInnerHTML", `<a href="./create/index.html"><button id="createBtn">Create Quiz</button></a>`);
+            localStorage.setItem("UID", user.uid);
 
             set(Ref, userData)
                 .then(function() {
@@ -113,6 +114,7 @@ window.login = function() {
                 <button style="height: 3.75vh; width: 7vh; font-size: 1.5vh; margin-top: 1vh;" onclick="logout()">Logout</button>
             `);
             localStorage.setItem("CreateInnerHTML", `<a href="./create/index.html"><button id="createBtn">Create Quiz</button></a>`);
+            localStorage.setItem("UID", user.uid);
 
             update(Ref, userData)
                 .then(function() {
