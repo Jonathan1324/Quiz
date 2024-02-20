@@ -53,9 +53,6 @@ let quiz = getDoc(doc(db, "Quizes", quizID))
             current = -1;
             return;
         }
-
-        document.getElementById("start").remove();
-        load(current);
     });
 
 let choosen = false;
