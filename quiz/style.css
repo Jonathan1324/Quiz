@@ -33,13 +33,19 @@ body {
     background-color: rgb(57, 57, 57);
 }
 
+#NextBtn {
+    text-align: center;
+    width: auto;
+}
+
 #nextBtn {
     background-color: rgb(58, 58, 58);
-    width: 10vh;
-    height: 3vh;
-    margin: 5vh;
-    text-align: center;
-    font-size: 2vh;
+
+    height: 10vh;
+
+    align-items: center;
+
+    font-size: 7vh;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;

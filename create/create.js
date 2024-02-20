@@ -82,7 +82,8 @@ window.saveQuestion = function() {
         2: document.getElementById("answerInput2").value,
         3: document.getElementById("answerInput3").value,
         4: document.getElementById("answerInput4").value,
-        right: document.getElementById("rightAnswer").options[document.getElementById("rightAnswer").selectedIndex].value
+        right: document.getElementById("rightAnswer").options[document.getElementById("rightAnswer").selectedIndex].value,
+        createdAt: Date.now()
     };
 
     document.getElementById("questionInput").value = "";
