@@ -23,21 +23,63 @@
 
         #user {
             background-color: rgb(58, 58, 58);
+            text-align: center;
         }
 
-        #description{
+        #description {
             background-color: rgb(66, 66, 66);
             margin-left: 10vh;
             margin-right: 10vh;
             height: 20vh;
+            font-size: 2vh;
             overflow: auto;
+        }
+
+        #profilePictureURL {
+            background-color: rgb(66, 66, 66);
+            color: white;
+            margin-left: 10vh;
+            margin-right: 10vh;
+            margin-top: 2vh;
+            width: 70vh;
+            height: 3vh;
             text-align: center;
+            font-size: 2vh;
+            border: none;
+
+            visibility: hidden;
+        }
+
+        #descriptionInput {
+            background-color: rgb(66, 66, 66);
+            border: none;
+            resize: none;
+            border: none;
         }
 
         img {
             height: 3vh;
             margin-right: 3vh;
             border-radius: 1.2vh;
+        }
+
+        .editBtn {
+            border-radius: 1.2vh;
+            border: none;
+            background-color: rgb(92, 92, 92);
+            color: white;
+            width: 10vh;
+            height: 5%;
+            font-size: 3vh;
+        }
+
+        .editBtn:hover {
+            cursor: pointer;
+            background-color: rgb(98, 98, 98);
+        }
+
+        .editBtn:active {
+            background-color: rgb(104, 104, 104);
         }
     </style>
 
@@ -47,7 +89,7 @@
     <div id="user">
         <h1 id="Username"></h1>
         <div id="description"></div>
-        <br>
+        <input id="profilePictureURL">
         <h1 id="editBtn"></h1>
     </div>
 
@@ -57,7 +99,7 @@
         const uid = urlParams.get('id');
 
         if(uid == localStorage.getItem("UID")){
-            //document.getElementById("editBtn").innerHTML = `<button>EDIT</button>`;
+            document.getElementById("editBtn").innerHTML = `<button onclick="edit()" class="editBtn">EDIT</button>`;
         }
     </script>
 
@@ -89,12 +131,30 @@
         let data = await get(Ref);
         data = data.val();
 
+        console.log(data);
+
         try {
             document.getElementById("Username").innerHTML = `<img src="${data["profilePictureURL"]}">${data["userName"]}`;
             document.getElementById("description").innerHTML = data["description"];
         } catch (e) {
             document.getElementById("Username").innerHTML = "User Not Found";
             document.getElementById("description").remove();
+        }
+
+        window.edit = function() {
+            document.getElementById("description").contentEditable = true;
+            document.getElementById("profilePictureURL").value = data["profilePictureURL"];
+            document.getElementById("profilePictureURL").style = `visibility: visible;`;
+            document.getElementById("editBtn").innerHTML = `<button onclick="save()" class="editBtn">Save</button>`;
+        }
+
+        window.save = async function() {
+            let userData = data;
+            userData["description"] = document.getElementById("description").innerHTML;
+            userData["profilePictureURL"] = document.getElementById("profilePictureURL").value;
+            set(Ref, userData);
+
+            window.location.reload();
         }
     </script>
 </body>

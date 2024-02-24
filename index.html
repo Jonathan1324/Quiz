@@ -12,11 +12,17 @@
     <title>Quiz</title>
 </head>
 <body onload="loadList()">
-    <div id="Account">
-        <a href="./Account/user/"></a>
-        <br>
-        <button style="height: 3.75vh; width: 7vh; font-size: 1.5vh; margin-top: 1vh;" onclick="logout()">Logout</button>
+    <div>
+        <div class="User" id="Account">
+            <a href="./Account/user/"></a>
+            <br>
+            <button style="height: 3.75vh; width: 7vh; font-size: 1.5vh; margin-top: 1vh;" onclick="logout()">Logout</button>
+        </div>
+        <div class="User" id="Creator">
+            <a href="./Account/user/?id=w2EWXhNofQVu9XY8pR5bDxcmHH33">Creator</a>
+        </div>
     </div>
+
     <h1>Quiz</h1>
     <input placeholder="123 456 789" id="ID" type="number">
     <a><button onclick="startQuizSingleplayer()" id="submitBtn">SinglePlayer</button></a>

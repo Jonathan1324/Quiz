@@ -46,7 +46,7 @@ window.register = function() {
                 created_at: Date.now(),
                 public: {
                     userName: userName,
-                    description: "description",
+                    description: "No description",
                     profilePictureURL: `${window.location.href.substring(0, window.location.href.lastIndexOf('/account'))}/src/defaultProfilePicture.jpg`
                 }
             };
