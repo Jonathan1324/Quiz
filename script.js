@@ -36,7 +36,12 @@ async function createListElement(id){
     let title = await getDoc(doc(db, "Quizes", String(id)));
     try {
         title = title.data()["title"];
-    } catch(e) { return; }
+    } catch(e) { 
+        document.getElementById("exploreIDs").innerHTML += `
+             <li onclick="startQuizSingleplayerWithID(1)"><a>not Loading 2</a></li>
+        `;
+        return; 
+    }
     document.getElementById("exploreIDs").innerHTML += `
         <li onclick="startQuizSingleplayerWithID(${id})"><a>${title}</a></li>
     `;
