@@ -53,7 +53,11 @@ window.loadList = async function(){
     for(let i = newestID; i >= newestID - length; i--){
         try {
                 createListElement(i);
-        } catch(e){ }
+        } catch(e){ 
+            document.getElementById("exploreIDs").innerHTML += `
+                 <li onclick="startQuizSingleplayerWithID(1)"><a>not Loading</a></li>
+            `;
+        }
     }
 }
 
