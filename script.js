@@ -40,14 +40,7 @@ async function createListElement(id){
     let title = await getDoc(doc(db, "Quizes", String(id)));
     try {
         title = title.data()["title"];
-    } catch(e) {
-        if(developer) {
-            document.getElementById("exploreIDs").innerHTML += `
-                <li><a>not Loading in createListElement</a></li>
-            `;
-        }
-        return;
-    }
+    } catch(e) { return; }
     document.getElementById("exploreIDs").innerHTML += `
         <li onclick="startQuizSingleplayerWithID(${id})"><a>${title}</a></li>
     `;
@@ -74,7 +67,9 @@ window.loadList = async function(){
     }
 
     for(let i = newestID; i >= newestID - length; i--){
-        createListElement(i);
+        try {
+                createListElement(i);
+        } catch(e){ }
     }
 }
 
