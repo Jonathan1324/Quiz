@@ -45,11 +45,14 @@ window.createQuiz = async function() {
     quizID = quizID.data()["newestQuizID"] + 1;
 
     quiz = {
-        "title": document.getElementById("titleInput").value,
+    
         "creator": User,
         "creatorName": UName,
+        "language": document.getElementById("languages").value,
+        "questionCount": Object.keys(questions).length,
         "questions": questions,
-        "questionCount": Object.keys(questions).length};
+        "title": document.getElementById("titleInput").value
+    };
 
     await updateDoc(doc(db, "Metadata", "Quizes"), {"newestQuizID": quizID});
     await setDoc(doc(db, "Quizes", String(quizID)), quiz);

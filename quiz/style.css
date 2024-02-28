@@ -99,6 +99,15 @@ h4 {
     font-size: 5vh;
 }
 
+#language {
+    height: 3.5vh;
+    width: 5vh;
+    margin-right: 2vh;
+    border-radius: 1vh;
+    border: solid;
+    border-color: rgb(0, 0, 0);
+}
+
 .loader {
     position: absolute;
     left: 50%;

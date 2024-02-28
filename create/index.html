@@ -8,6 +8,12 @@
 </head>
 <body>
     <div id="quizTitle">Title: <input class="Input" id="titleInput" placeholder="Title" type="text"></div>
+
+    <h1>
+        Language
+        <select id="languages" name="languages"></select>
+    </h1>
+
     <div id="Table" class="table">
         <div id="quizTitle">Question: <input class="Input" id="questionInput" placeholder="Question" type="text"></div>
         <table>
@@ -43,6 +49,19 @@
     <script>
         if(localStorage.getItem("CreateInnerHTML") == `<a id="createBtn">Sign-in or Sign-up to create a Quiz</a>`){
             document.getElementById("createQuiz").innerHTML = "";
+        }
+
+        let Languages = {
+            "English": "English",
+            "German": "German",
+            "not important": "none"
+            
+        };
+
+        for(let i = 0; i < Object.keys(Languages).length; i++){
+            document.getElementById("languages").innerHTML += `
+                <option value="${Languages[Object.keys(Languages)[i]]}">${Object.keys(Languages)[i]}</option>
+            `;
         }
     </script>
 

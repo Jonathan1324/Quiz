@@ -32,10 +32,13 @@ let questionCount = 0;
 let quiz = getDoc(doc(db, "Quizes", quizID))
     .then((Quiz) => {
         quiz = Quiz.data();
-        console.log(quiz)
         try {
+            let language = quiz["language"];
             document.getElementById("start").innerHTML = `
-                <h4>${quiz["title"]}</h4>
+                <h4>
+                    <img title="${language}" id="language" src="${window.location.origin}/src/languages/${language}.png">
+                    ${quiz["title"]}
+                </h4>
                 <a style="font-size: 4vh;">
                 by <a href="${window.location.href.substring(0, window.location.href.lastIndexOf('/quiz'))}/Account/user/?id=${quiz["creator"]}" style="font-size: 4vh; text-decoration:none; color: white;">${quiz["creatorName"]}</a>
                 <br>
