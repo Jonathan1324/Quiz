@@ -96,7 +96,6 @@ onAuthStateChanged(auth, (user) => {
         let Create = `<a href="./create/index.html"><button id="createBtn">Create Quiz</button></a>`;
         localStorage.setItem("AccountInnerHTML", account);
         localStorage.setItem("CreateInnerHTML", Create);
-        console.log(user);
         document.getElementById("Account").innerHTML = account;
         document.getElementById("create").innerHTML = Create;
 
