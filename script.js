@@ -86,7 +86,7 @@ window.logout = function(){
     })
 }
 
-await onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, (user) => {
     if (user) { 
         localStorage.setItem("UID", user.uid);
         let account = `
