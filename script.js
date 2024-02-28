@@ -22,10 +22,6 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const remoteConfig = getRemoteConfig(app);
 
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const developer = urlParams.get('developer') == "true";
-
 window.startQuizSingleplayerWithID = function(Id){
     window.location.href = `${window.location.origin}/quiz/?qId=${Id}`;
 }
@@ -40,7 +36,14 @@ async function createListElement(id){
     let title = await getDoc(doc(db, "Quizes", String(id)));
     try {
         title = title.data()["title"];
-    } catch(e) { return; }
+    } catch(e) {
+        if(developer) {
+            document.getElementById("exploreIDs").innerHTML += `
+                <li><a>Couldn't load</a></li>
+            `;
+        }
+        return;
+    }
     document.getElementById("exploreIDs").innerHTML += `
         <li onclick="startQuizSingleplayerWithID(${id})"><a>${title}</a></li>
     `;
@@ -52,18 +55,8 @@ async function loadList(){
     let length = Metadata.data()["Explore-Length"] - 1;
     let doExplorePage = Metadata.data()["doExplorePage"];
 
-    if(developer){
-        length = 5;
-    }
-
     if(!doExplorePage) {
         return;
-    }
-
-    if(developer) {
-        document.getElementById("exploreIDs").innerHTML += `
-            <li><a>${newestID} - ${length} = ${newestID - length}</a></li>
-        `;
     }
 
     for(let i = newestID; i >= newestID - length; i--){

@@ -12,18 +12,16 @@
     <title>Quiz</title>
 </head>
 <body>
-    <div>
+    <div id="userRow">
         <div class="User" id="Account">
             <a href="./Account/user/"></a>
             <br>
             <button style="height: 3.75vh; width: 7vh; font-size: 1.5vh; margin-top: 1vh;" onclick="logout()">Logout</button>
         </div>
-        <div class="User" id="Creator">
-            <a href="./Account/user/?id=w2EWXhNofQVu9XY8pR5bDxcmHH33">Creator</a>
-        </div>
+        <h1 class="Title">Quiz</h1>
+        <div class="User" id="Creator"></div>
     </div>
 
-    <h1>Quiz</h1>
     <input placeholder="123 456 789" id="ID" type="number">
     <a><button onclick="startQuizSingleplayer()" id="submitBtn">SinglePlayer</button></a>
 
@@ -34,13 +32,24 @@
     <div id="explore">
         <h1>Explore</h1>
         <ul id="exploreIDs">
-            
+                
         </ul>
     </div>
 
     <script>
         document.getElementById("Account").innerHTML = localStorage.getItem("AccountInnerHTML");
         document.getElementById("create").innerHTML = localStorage.getItem("CreateInnerHTML");
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const developer = urlParams.get('developer') == "true";
+
+        if(developer) {
+            document.getElementById("Creator").style.backgroundColor = `background-color: rgb(54, 54, 54);`;
+            document.getElementById("Creator").innerHTML += `
+                <a href="./Account/user/?id=w2EWXhNofQVu9XY8pR5bDxcmHH33">Creator</a>
+            `;
+        }
     </script>
     <script type="module" src="script.js"></script>
 </body>

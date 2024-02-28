@@ -26,7 +26,6 @@ h1 {
 }
 
 #Creator {
-    background-color: rgb(54, 54, 54);
     width: 20vh;
     height: 8vh;
 
@@ -44,7 +43,16 @@ h1 {
     float: right;
 }
 
+#userRow {
+    display: flex;
+    justify-content: space-between;
+}
+
 .User {
+    display: inline-block;
+}
+
+.Title {
     display: inline-block;
 }
 
