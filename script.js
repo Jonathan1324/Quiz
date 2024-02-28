@@ -22,6 +22,9 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const remoteConfig = getRemoteConfig(app);
 
+let elements = "";
+let elementCount = 0;
+
 window.startQuizSingleplayerWithID = function(Id){
     window.location.href = `${window.location.origin}/quiz/?qId=${Id}`;
 }
@@ -32,21 +35,27 @@ window.startQuizSingleplayer = function(){
     window.location.href = `${window.location.origin}/quiz/?qId=${Value}`;
 }
 
-async function createListElement(id){
+async function createListElement(id, length){
     let title = await getDoc(doc(db, "Quizes", String(id)));
     try {
         title = title.data()["title"];
+        elements += `
+            <li onclick="startQuizSingleplayerWithID(${id})"><a>${title}</a></li>
+        `;
     } catch(e) {
         if(developer) {
-            document.getElementById("exploreIDs").innerHTML += `
+            elements += `
                 <li><a>Couldn't load</a></li>
             `;
         }
-        return;
     }
-    document.getElementById("exploreIDs").innerHTML += `
-        <li onclick="startQuizSingleplayerWithID(${id})"><a>${title}</a></li>
-    `;
+    elementCount++;
+    if(elementCount == length + 1){
+        document.getElementById("exploreIDs").innerHTML = elements;
+        if(!developer){
+            localStorage.setItem("ExploreList", elements);
+        }
+    }
 }
 
 async function loadList(){
@@ -60,10 +69,10 @@ async function loadList(){
     }
 
     for(let i = newestID; i >= newestID - length; i--){
-        try {
-                createListElement(i);
-        } catch(e){ }
+        createListElement(i, length);
     }
+    
+    
 }
 
 window.logout = function(){

@@ -39,13 +39,14 @@
     <script>
         document.getElementById("Account").innerHTML = localStorage.getItem("AccountInnerHTML");
         document.getElementById("create").innerHTML = localStorage.getItem("CreateInnerHTML");
+        document.getElementById("exploreIDs").innerHTML = localStorage.getItem("ExploreList");;
 
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const developer = urlParams.get('developer') == "true";
 
         if(developer) {
-            document.getElementById("Creator").style.backgroundColor = `background-color: rgb(54, 54, 54);`;
+            document.getElementById("Creator").style.backgroundColor = `rgb(54, 54, 54)`;
             document.getElementById("Creator").innerHTML += `
                 <a href="./Account/user/?id=w2EWXhNofQVu9XY8pR5bDxcmHH33">Creator</a>
             `;
