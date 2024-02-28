@@ -46,7 +46,7 @@ async function createListElement(id){
     `;
 }
 
-window.loadList = async function(){
+async function loadList(){
     let Metadata = await getDoc(doc(db, "Metadata", "Quizes"));
     let newestID = Metadata.data()["newestQuizID"];
     let length = Metadata.data()["Explore-Length"] - 1;
@@ -108,3 +108,5 @@ await onAuthStateChanged(auth, (user) => {
         document.getElementById("Account").innerHTML = `<a style="color:rgb(65, 182, 197)" href="./Account/index.html">Sign-in/Sign-up</a>`;
     }
 });
+
+loadList();
