@@ -157,7 +157,16 @@ li {
     transition: 250ms ease-in-out;
 }
 
+li:hover {
+    cursor: pointer;
+    background-color: rgb(95, 95, 95);
 
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
 
 a {
     color: white;
