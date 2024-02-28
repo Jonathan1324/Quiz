@@ -52,9 +52,6 @@ async function createListElement(id, length){
     elementCount++;
     if(elementCount == length + 1){
         document.getElementById("exploreIDs").innerHTML = elements;
-        if(!developer){
-            localStorage.setItem("ExploreList", elements);
-        }
     }
 }
 

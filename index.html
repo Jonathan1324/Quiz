@@ -39,7 +39,7 @@
     <script>
         document.getElementById("Account").innerHTML = localStorage.getItem("AccountInnerHTML");
         document.getElementById("create").innerHTML = localStorage.getItem("CreateInnerHTML");
-        document.getElementById("exploreIDs").innerHTML = localStorage.getItem("ExploreList");;
+        document.getElementById("exploreIDs").innerHTML = `Loading`;
 
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
