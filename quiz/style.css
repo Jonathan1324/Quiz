@@ -19,7 +19,22 @@ body {
 
 .optionColumn {
     height: 10vh;
-    width: 10vh;
+    width: 100vh;
+}
+
+#option1 {
+    background-color: rgb(50, 50, 50);
+}
+
+#option2 {
+    background-color: rgb(50, 50, 50);
+}
+
+#option3 {
+    background-color: rgb(50, 50, 50);
+}
+
+#option4 {
     background-color: rgb(50, 50, 50);
 }
 
@@ -39,7 +54,9 @@ body {
 }
 
 #nextBtn {
-    background-color: rgb(58, 58, 58);
+    background-color: rgb(79, 79, 79);
+
+    border: none;
 
     height: 10vh;
 
@@ -55,11 +72,11 @@ body {
 
 #nextBtn:hover {
     cursor: pointer;
-    background-color: rgb(61, 61, 61);
+    background-color: rgb(82, 82, 82);
 }
 
 #nextBtn:active {
-    background-color: rgb(66, 66, 66);
+    background-color: rgb(87, 87, 87);
 }
 
 #start {

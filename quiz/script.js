@@ -80,9 +80,7 @@ function load(question){
         }
     }
     
-    let options = [1, 2, 3, 4];
-
-    options.sort(() => Math.random() - 0.5);
+    let options = [1, 2, 3, 4].sort(() => Math.random() - 0.5);
     
     document.getElementById("question").innerHTML = `
         <h1 id="Question">${document.getElementById("Question").innerHTML = quiz["questions"][question]["title"]}</h1>
@@ -138,7 +136,6 @@ window.choose = function (selection) {
 }
 
 window.next = function () {
-    console.log(current)
     try{
         load(current);
     } catch (e){}
