@@ -36,11 +36,19 @@ window.startQuizSingleplayer = function(){
 }
 
 async function createListElement(id, length){
-    let title = await getDoc(doc(db, "Quizes", String(id)));
+    let Data = await getDoc(doc(db, "Quizes", String(id)));
+    Data = Data.data();
     try {
-        title = title.data()["title"];
+        console.log(Data)
         elements += `
-            <li onclick="startQuizSingleplayerWithID(${id})"><a>${title}</a></li>
+            <li onclick="startQuizSingleplayerWithID(${id})"><a>
+                <table>
+                    <tr>
+                        <td> <img title="${Data["language"]}" id="language" src="${window.location.origin}/src/languages/${Data["language"]}.png"> </td>
+                        <td> ${Data["title"]}</a> </td>
+                    </tr>
+                </table>
+            </li>
         `;
     } catch(e) {
         if(developer) {
