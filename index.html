@@ -24,6 +24,7 @@
 
     <input placeholder="123 456 789" id="ID" type="number">
     <a><button onclick="startQuizSingleplayer()" id="submitBtn">SinglePlayer</button></a>
+    <a id="ADMIN"></a>
 
     <br>
 
@@ -50,6 +51,8 @@
             document.getElementById("Creator").innerHTML += `
                 <a href="./Account/user/?id=w2EWXhNofQVu9XY8pR5bDxcmHH33">Creator</a>
             `;
+
+            document.getElementById("ADMIN").innerHTML = `<a href="./admin/index.html">ADMIN</a>`
         }
     </script>
     <script type="module" src="script.js"></script>
