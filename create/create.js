@@ -55,6 +55,8 @@ window.createQuiz = async function() {
         "rating": {}
     };
 
+    quiz["rating"][User] = 5
+
     await updateDoc(doc(db, "Metadata", "Quizes"), {"newestQuizID": quizID});
     await setDoc(doc(db, "Quizes", String(quizID)), quiz);
 
