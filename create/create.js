@@ -52,10 +52,7 @@ window.createQuiz = async function() {
         "questionCount": Object.keys(questions).length,
         "questions": questions,
         "title": document.getElementById("titleInput").value
-        "rating": {}
     };
-
-    quiz["rating"][User] = 5
 
     await updateDoc(doc(db, "Metadata", "Quizes"), {"newestQuizID": quizID});
     await setDoc(doc(db, "Quizes", String(quizID)), quiz);
