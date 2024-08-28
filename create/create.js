@@ -52,6 +52,7 @@ window.createQuiz = async function() {
         "questionCount": Object.keys(questions).length,
         "questions": questions,
         "title": document.getElementById("titleInput").value
+        "rating": {}
     };
 
     await updateDoc(doc(db, "Metadata", "Quizes"), {"newestQuizID": quizID});
