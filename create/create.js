@@ -44,8 +44,9 @@ window.createQuiz = async function() {
     quizID = await getDoc(doc(db, "Metadata", "Quizes"));
     quizID = quizID.data()["newestQuizID"] + 1;
 
+    let rating = {}
+
     quiz = {
-    
         "creator": User,
         "creatorName": UName,
         "language": document.getElementById("languages").value,
